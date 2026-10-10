@@ -1,0 +1,6 @@
+{
+  "name": "DSISAC - Fábrica de Software y Soluciones Empresariales",
+  "description": "Fábrica de software peruana especializada en soluciones de gestión empresarial, DSINet ERP Core, facturación electrónica y desarrollo a medida.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
