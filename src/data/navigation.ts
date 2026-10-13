@@ -14,7 +14,8 @@ export const PRODUCTOS_MENU: NavItem[] = [
   {
     name: 'DSI - Pedidos',
     href: '/soluciones/dsi-pedidos',
-    description: 'Agilización de preventa, toma de pedidos en campo y sincronización con almacén.',
+    description:
+      'Toma de pedidos en campo, consultas comerciales y registro online u offline integrado con el ERP.',
   },
   {
     name: 'Desarrollo de Software a Medida',

@@ -1,47 +1,73 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Logo } from '../ui/Logo';
-import { PRODUCTOS_MENU, SERVICIOS_MENU, SECTORES_MENU, COMPANY_CONTACT } from '../../data/navigation';
-import { Mail, Phone, ExternalLink } from 'lucide-react';
+import {
+  PRODUCTOS_MENU,
+  SERVICIOS_MENU,
+  SECTORES_MENU,
+  COMPANY_CONTACT,
+} from '../../data/navigation';
+import {
+  Mail,
+  Phone,
+  ExternalLink,
+  ArrowUpRight,
+} from 'lucide-react';
 import { BlurText } from '../ui/BlurText';
 import { TechnicalGrid } from '../ui/TechnicalGrid';
 import { HexagonMotif } from '../ui/HexagonMotif';
 
 export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  const linkClass =
+    'inline-flex items-center gap-1 text-sm text-slate-300 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-sm';
+
+  const headingClass =
+    'mb-4 text-xs font-bold uppercase tracking-[0.14em] text-blue-300';
+
   return (
-    <footer className="bg-[#10274D] text-white pt-20 pb-12 overflow-hidden border-t border-blue-950 relative">
-      <TechnicalGrid variant="dark" crosshairs={false} />
-      <div className="absolute -top-12 -right-12 opacity-30 pointer-events-none hidden md:block">
-        <HexagonMotif variant="dark" size={260} />
+    <footer className="relative isolate overflow-hidden border-t border-white/10 bg-[#10274D] text-white">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <TechnicalGrid variant="dark" crosshairs={false} />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1D38]/70" />
+
+        <div className="absolute -right-24 -top-24 opacity-15">
+          <HexagonMotif variant="dark" size={240} />
+        </div>
       </div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
-          <div className="lg:col-span-2 space-y-6 pr-4">
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-white/10 py-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-10 lg:py-14">
+          <div className="space-y-5 sm:col-span-2 lg:col-span-2 lg:pr-8">
             <Link
               to="/"
               aria-label="DSISAC - Inicio"
-              className="inline-flex items-center"
-              > 
-              <img 
-              src="/images/dsisac-logo-blanco.png" 
-              alt="DSISAC - Fábrica de Software" 
-              className="block h-12 w-auto max-w-[220px] object-contain" 
-              /> 
-              </Link>
-            <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
-              Fábrica de software peruana especializada en soluciones de gestión empresarial.
-              Desarrollamos DSINet ERP Core y plataformas integradas que conectan tus operaciones,
-              almacenes, finanzas y facturación electrónica.
+              className="inline-flex items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+            >
+              <img
+                src="/images/dsisac-logo-blanco.png"
+                alt="DSISAC - Fábrica de Software"
+                className="block h-10 w-auto max-w-[210px] object-contain sm:h-11"
+              />
+            </Link>
+
+            <p className="max-w-md text-sm leading-relaxed text-slate-300">
+              Fábrica de software peruana especializada en soluciones de
+              gestión empresarial. Desarrollamos DSINet ERP Core y
+              plataformas que conectan las operaciones, los almacenes,
+              las finanzas y la facturación electrónica.
             </p>
 
-            <div className="space-y-3 pt-2">
+            <div className="space-y-3 pt-1">
               <a
                 href={`mailto:${COMPANY_CONTACT.email}`}
-                className="flex items-center gap-3 text-sm text-slate-300 hover:text-white transition-colors group"
+                className="group flex w-fit items-center gap-3 rounded-sm text-sm text-slate-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:bg-[#1749C7] group-hover:text-white transition-colors">
-                  <Mail className="w-4 h-4" />
-                </div>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-blue-300 transition-colors group-hover:bg-[#1749C7] group-hover:text-white">
+                  <Mail className="h-4 w-4" />
+                </span>
                 <span>{COMPANY_CONTACT.email}</span>
               </a>
 
@@ -49,64 +75,64 @@ export const Footer: React.FC = () => {
                 href={COMPANY_CONTACT.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-slate-300 hover:text-white transition-colors group"
+                className="group flex w-fit items-center gap-3 rounded-sm text-sm text-slate-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:bg-[#1749C7] group-hover:text-white transition-colors">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <span>{COMPANY_CONTACT.phone} (Central de Atención)</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-blue-300 transition-colors group-hover:bg-[#1749C7] group-hover:text-white">
+                  <Phone className="h-4 w-4" />
+                </span>
+                <span>{COMPANY_CONTACT.phone} · Central de atención</span>
               </a>
             </div>
 
-            <div className="pt-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-3">
-                Canales Oficiales
-              </span>
-              <div className="flex items-center gap-4 text-xs text-slate-300">
-                <a
-                  href={COMPANY_CONTACT.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1"
-                >
-                  Facebook <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
-                <span>·</span>
-                <a
-                  href={COMPANY_CONTACT.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1"
-                >
-                  Instagram <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
-                <span>·</span>
-                <a
-                  href={COMPANY_CONTACT.social.tiktok}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1"
-                >
-                  TikTok <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
+            <div className="pt-1">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
+                Canales oficiales
+              </p>
+
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                {[
+                  {
+                    name: 'Facebook',
+                    href: COMPANY_CONTACT.social.facebook,
+                  },
+                  {
+                    name: 'Instagram',
+                    href: COMPANY_CONTACT.social.instagram,
+                  },
+                  {
+                    name: 'TikTok',
+                    href: COMPANY_CONTACT.social.tiktok,
+                  },
+                ].map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {social.name}
+                    <ExternalLink className="h-3 w-3 opacity-50" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-4">
-              Productos
-            </h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
+          <nav aria-label="Productos">
+            <h3 className={headingClass}>Productos</h3>
+
+            <ul className="space-y-3">
               {PRODUCTOS_MENU.map((item) => (
                 <li key={item.href}>
                   <Link
                     to={item.href}
-                    className="hover:text-white transition-colors flex items-center justify-between"
+                    className="group flex items-start justify-between gap-2 text-sm text-slate-300 transition-colors hover:text-white"
                   >
                     <span>{item.name}</span>
+
                     {item.badge && (
-                      <span className="text-[10px] text-amber-300/80 bg-amber-400/10 px-1.5 py-0.5 rounded">
+                      <span className="shrink-0 rounded bg-amber-400/10 px-1.5 py-0.5 text-[10px] text-amber-300">
                         {item.badge}
                       </span>
                     )}
@@ -114,77 +140,82 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-4">
-              Servicios
-            </h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
+          <nav aria-label="Servicios">
+            <h3 className={headingClass}>Servicios</h3>
+
+            <ul className="space-y-3">
               {SERVICIOS_MENU.map((item) => (
                 <li key={item.href}>
-                  <Link to={item.href} className="hover:text-white transition-colors block">
+                  <Link to={item.href} className={linkClass}>
                     {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-4">
-              Por Tipo de Empresa
-            </h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
+          <nav aria-label="Sectores y recursos">
+            <h3 className={headingClass}>Por tipo de empresa</h3>
+
+            <ul className="space-y-3">
               {SECTORES_MENU.map((item) => (
                 <li key={item.href}>
-                  <Link to={item.href} className="hover:text-white transition-colors block">
+                  <Link to={item.href} className={linkClass}>
                     {item.name}
                   </Link>
                 </li>
               ))}
-              <li className="pt-3 border-t border-white/10">
-                <Link to="/mesa-de-ayuda" className="hover:text-white transition-colors block font-medium">
-                  Mesa de Ayuda
+
+              <li className="border-t border-white/10 pt-3">
+                <Link to="/mesa-de-ayuda" className={linkClass}>
+                  Mesa de ayuda
                 </Link>
               </li>
+
               <li>
-                <Link to="/blog" className="hover:text-white transition-colors block font-medium">
-                  Blog Técnico & Artículos
+                <Link to="/blog" className={linkClass}>
+                  Blog técnico
                 </Link>
               </li>
+
               <li>
-                <Link to="/contacto" className="hover:text-white transition-colors block font-medium">
-                  Contacto Comercial
+                <Link to="/contacto" className={linkClass}>
+                  Contacto comercial
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
 
-        <div className="py-12 border-b border-white/10 select-none">
+        <div className="select-none border-b border-white/10 py-7 sm:py-8">
           <BlurText
             text="DSISAC"
             as="h2"
-            className="text-[clamp(3.5rem,15vw,11rem)] font-extrabold tracking-tighter text-white/10 hover:text-white/15 transition-colors duration-500 leading-none text-center block"
+            className="block text-center text-[clamp(3.5rem,13vw,9rem)] font-extrabold leading-none tracking-[-0.07em] text-white/[0.09] transition-colors duration-500 hover:text-white/[0.14]"
           />
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>
-            © {new Date().getFullYear()} DSI S.A.C. Todos los derechos reservados. Lima, Perú.
+        <div className="flex flex-col items-center justify-between gap-4 py-6 text-center sm:flex-row sm:text-left">
+          <p className="text-xs leading-relaxed text-slate-400">
+            © {currentYear} DSI S.A.C. Todos los derechos reservados.
+            <span className="hidden sm:inline"> · </span>
+            <span className="block sm:inline">Lima, Perú.</span>
           </p>
-          <div className="flex items-center gap-6">
-            <Link to="/soluciones/dsinet-erp-core" className="hover:text-white transition-colors">
+
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link to="/soluciones/dsinet-erp-core" className={linkClass}>
               DSINet ERP Core
             </Link>
-            <span>·</span>
-            <Link to="/mesa-de-ayuda" className="hover:text-white transition-colors">
-              Soporte a Clientes
+
+            <Link to="/mesa-de-ayuda" className={linkClass}>
+              Soporte
             </Link>
-            <span>·</span>
-            <Link to="/contacto" className="hover:text-white transition-colors">
+
+            <Link to="/contacto" className={linkClass}>
               Cotizaciones
+              <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
             </Link>
           </div>
         </div>

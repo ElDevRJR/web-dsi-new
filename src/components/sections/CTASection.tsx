@@ -1,56 +1,72 @@
+
 import React from 'react';
 import { Button } from '../ui/Button';
 import { BlurText } from '../ui/BlurText';
 import { Reveal } from '../ui/Reveal';
-import { PhoneCall, MessageCircle, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  MessageCircle,
+  Clock3,
+  Mail,
+  MapPin,
+} from 'lucide-react';
 import { COMPANY_CONTACT } from '../../data/navigation';
 
 export const CTASection: React.FC = () => {
   return (
-    <section className="py-20 lg:py-24 bg-gradient-to-br from-slate-900 via-[#10274D] to-[#0D1E3A] text-white relative overflow-hidden">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-slate-900 via-[#10274D] to-[#0D1E3A] py-14 text-white sm:py-16 lg:py-20">
+      {/* Cuadrícula tecnológica */}
       <div
-        className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"
         aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px]"
       />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      {/* Iluminación sutil */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 top-0 -z-10 h-72 w-72 rounded-full bg-blue-500/10 blur-[100px]"
+      />
+
+      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
         <Reveal delay={0.05}>
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-            Acompañamiento Empresarial
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+            Hablemos de tu próximo proyecto
           </span>
         </Reveal>
 
         <BlurText
-          text="¿Listo para articular tus compras, almacenes y ventas en un solo flujo?"
+          text="Tu empresa puede trabajar de forma más conectada."
           as="h2"
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight text-balance"
+          className="mx-auto mt-4 max-w-4xl text-balance text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl"
         />
 
-        <Reveal delay={0.2}>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed text-pretty font-normal">
-            Coordina una demostración guiada de DSINet ERP Core o solicita una evaluación técnica
-            para el desarrollo de software a la medida de tus procesos.
+        <Reveal delay={0.18}>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+            Optimiza tus procesos con DSINet ERP Core o desarrolla una
+            solución tecnológica adaptada a las necesidades de tu empresa.
           </p>
         </Reveal>
 
-        <Reveal delay={0.3}>
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+        <Reveal delay={0.28}>
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
               to="/contacto"
               variant="primary"
               size="lg"
-              className="bg-[#1749C7] hover:bg-blue-600 shadow-lg shadow-blue-900/40"
-              icon={<ArrowRight className="w-4 h-4" />}
+              className="justify-center bg-[#1749C7] shadow-lg shadow-blue-950/30 hover:bg-blue-600"
+              icon={<ArrowRight className="h-4 w-4" />}
             >
-              Solicitar Demostración
+              Solicitar demostración
             </Button>
+
             <Button
               href={COMPANY_CONTACT.whatsappUrl}
               isExternal
               variant="outline"
               size="lg"
-              className="bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-white"
-              icon={<MessageCircle className="w-4 h-4 text-emerald-400" />}
+              className="justify-center border-white/25 bg-white/5 text-white hover:border-white/50 hover:bg-white/10"
+              icon={<MessageCircle className="h-4 w-4 text-emerald-400" />}
               iconPosition="left"
             >
               Contactar por WhatsApp
@@ -58,13 +74,26 @@ export const CTASection: React.FC = () => {
           </div>
         </Reveal>
 
-        <Reveal delay={0.4}>
-          <div className="pt-8 text-xs text-slate-400 flex flex-wrap items-center justify-center gap-6">
-            <span>Atención de Lunes a Viernes 8:30 am - 6:30 pm</span>
-            <span>·</span>
-            <span>ventas@dsi-sac.com</span>
-            <span>·</span>
-            <span>Lima, Perú</span>
+        {/* Datos de contacto en una sola franja */}
+        <Reveal delay={0.38}>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t border-white/10 pt-5 text-xs text-slate-400 sm:text-sm">
+            <span className="flex items-center gap-2">
+              <Clock3 className="h-4 w-4 text-blue-300" />
+              Lun. a vie. · 8:30 a. m. – 6:30 p. m.
+            </span>
+
+            <a
+              href="mailto:ventas@dsi-sac.com"
+              className="flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <Mail className="h-4 w-4 text-blue-300" />
+              ventas@dsi-sac.com
+            </a>
+
+            <span className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-blue-300" />
+              Lima, Perú
+            </span>
           </div>
         </Reveal>
       </div>

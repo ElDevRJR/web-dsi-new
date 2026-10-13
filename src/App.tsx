@@ -23,10 +23,12 @@ import { Blog } from './pages/Blog';
 import { BlogArticle } from './pages/BlogArticle';
 import { Contact } from './pages/Contact';
 import { NotFound } from './pages/NotFound';
+import SmoothScroll from './components/layout/SmoothScroll';
 
 export default function App() {
   return (
     <BrowserRouter>
+    <SmoothScroll />
       <ScrollProgress />
       <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-[#1749C7]/15 selection:text-[#1749C7]">
         <Navbar />

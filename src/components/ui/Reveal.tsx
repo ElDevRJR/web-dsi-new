@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 
@@ -14,7 +15,7 @@ export const Reveal: React.FC<RevealProps> = ({
   className = '',
   delay = 0,
   yOffset = 18,
-  duration = 0.6,
+  duration = 0.8,
 }) => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -24,9 +25,21 @@ export const Reveal: React.FC<RevealProps> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+    data-reveal="true"
+      initial={{
+        opacity: 0,
+        y: yOffset,
+        filter: 'blur(8px)',
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+      }}
+      viewport={{
+        once: true,
+        margin: '-50px',
+      }}
       transition={{
         duration,
         delay,
